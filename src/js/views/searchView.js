@@ -1,15 +1,16 @@
+import { add } from 'lodash';
+
 class SearchView {
   #parentElement = document.querySelector('.search');
 
-  getValue(){
-    
+  getQuery() {
+    const val = document.querySelector('.search__field').value;
+    return val;
   }
-
-  addHandleEvent(data) {
+  addHandlerEvent(handle) {
     this.#parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
-      const val = document.querySelector('.search__field').value;
-      return val;
+      handle();
     });
   }
 }
